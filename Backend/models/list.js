@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
-const user = require("./user");
-const listschema = new mongoose.Schema({
+
+const listSchema = new mongoose.Schema({
   title: {
     type: String,
     required: true,
@@ -11,8 +11,8 @@ const listschema = new mongoose.Schema({
   },
   user: {
     type: mongoose.Types.ObjectId,
-    ref: "user",
+    ref: "User", 
   },
 });
 
-module.exports = mongoose.model("List", listschema);
+module.exports = mongoose.model("List", listSchema);

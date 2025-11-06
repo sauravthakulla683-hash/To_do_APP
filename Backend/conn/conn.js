@@ -1,16 +1,14 @@
 const mongoose = require("mongoose");
-const conn = async (req, res) => {
+
+const conn = async () => {
   try {
-    await mongoose
-      .connect(
-        "mongodb+srv://saurabhthakulla6_db_user:kftngj4JcSMVAaYl@saurav.efyymev.mongodb.net/"
-      )
-      .then(() => {
-        console.log("connected");
-      });
+    await mongoose.connect(
+      "mongodb+srv://saurabhthakulla6_db_user:kftngj4JcSMVAaYl@saurav.efyymev.mongodb.net/"
+    );
+    console.log("✅ MongoDB connected successfully");
   } catch (err) {
-    res.send("Error Not connected");
-    console.log("Not connected");
+    console.log("❌ MongoDB connection failed:", err.message);
   }
 };
+
 conn();
